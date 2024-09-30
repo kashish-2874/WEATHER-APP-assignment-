@@ -4,9 +4,9 @@
   margin: 5vh auto;
   text-align: center;
   border-radius: 2vh;
-  background: linear-gradient(rgba(33, 1, 33, 0.699), rgba(67, 160, 230, 0.673));      
+  background-image: linear-gradient(to right, #434343 0%, black 100%);     
   position: relative;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a default shadow */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.883); /* Add a default shadow */
 }
 
 #root::before {
@@ -17,7 +17,7 @@
   right: -15px;
   bottom: -15px;
   z-index: -1;
-  background: linear-gradient(to bottom, rgba(220, 74, 74, 0.219), rgba(157, 157, 157, 0.5)); /* Gradient shadow effect */
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
   filter: blur(40px); /* Blur to simulate shadow */
   border-radius: 2vh; /* Match border radius of #root */
 }
@@ -58,11 +58,11 @@
   white-space: nowrap; /* Prevent text wrapping */
   display: flex; /* Prevent block-level spacing issues */
   align-items: center;
-  color: rgb(255, 188, 5);
+  color: rgb(131, 133, 133);
 }
 .Title:hover{
   cursor: pointer;
-  color: #8777d9; /* Lighter purple */;
+  color: #bfbec0; /* Lighter purple */;
   transition: 0.5s;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .button button:hover {
-  background-color: #8777d9; /* Lighter purple */
+  background-color: #04375e; /* Lighter purple */
   transform: scale(1.05);
 }
 
@@ -145,10 +145,10 @@
   font-size: 2vh;
   background-color: #181818; /* Very dark gray */
   color: #ffffff;
-  border: 2px solid #6d57c7; /* Soft purple */
+  border: 2px solid #59585b; /* Soft purple */
 }
 .input1:focus {
-  border-color: #8777d9; /* Lighter purple */
+  border-color: #5d5c5f; /* Lighter purple */
 }
 
 
@@ -158,15 +158,15 @@
   background-color: #5c5f6c; 
 }
 .button1:hover{
-  background-color: #8777d9; /* Lighter purple */
+  background-color: #04375e;; /* Lighter purple */
   transform: scale(1.05);
   transition: 0.5s;
 }
 
 
 .items_singular{
-  border: 3px solid #8777d9;
-  background: linear-gradient(rgba(255, 188, 5, 0.251),rgba(255, 192, 203, 0.6)); 
+  border: 3px solid #6c6c6e;
+  background-image: linear-gradient(to right, #141e30, #243b55);
   height:auto;
   padding: 1vh;
   width:25vh;
@@ -213,8 +213,8 @@
   margin-top: 4vh;
 }
 .items_multiple{
-  border: 3px solid #8777d9;
-  background: linear-gradient(rgba(255, 188, 5, 0.251),rgba(255, 192, 203, 0.6)); 
+  border: 3px solid #5f5f60;
+  background-image: linear-gradient(to right, #141e30, #243b55);
   padding: 3vh;
   width:20vh;
   border-radius: 2vh;
@@ -246,7 +246,7 @@
 }
 .form_child1 h2{
   font-size: 5vh;
-  background-color:#8777d9;;
+  background-color:#818082;;
   border: 2.6px solid white;
   width:200%;
   position: relative;
@@ -298,7 +298,7 @@
 }
 .form_child2 h2{
   font-size: 5vh;
-  background-color: #8777d9;;
+  background-color: #606062;;
   border: 2.6px solid white;
   width:200%;
   position: relative;

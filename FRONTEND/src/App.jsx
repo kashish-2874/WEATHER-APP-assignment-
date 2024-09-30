@@ -243,7 +243,7 @@ function App() {
         <div className="box1">
           <form onSubmit={handleCity} className='form1'>
             <input type="text" className='input1' value={city} onChange={(e) => setCity(e.target.value)}  placeholder="Enter city/country name" />
-            <button type='submit' className='button1'>SUBMIT</button>
+            <button type='submit' className='button1'>SHOW</button>
           </form>
           <div className="items_singular">
                  {/* image here  */}
@@ -254,9 +254,9 @@ function App() {
           </div>
           {/* Conditionally display "HELLO" only if cityData is empty */}
           {!cityData.name && !cityData.temp && !cityData.weather && !cityData.date ? (
-            <div className='X'><h2>NOTHING TO DISPLAY !</h2></div>
+            <div className='X'></div>
           ) : (
-            <div className='X'><h2>PLEASE LOGIN !</h2><h3>To access the weather forecast for the next 5 days, please log in to your account. Stay informed about the weather and plan your activities accordingly!</h3>
+            <div className='X'>
             </div>
           )}
         </div>
@@ -264,7 +264,7 @@ function App() {
         <div className="box2">
           <form onSubmit={handleCity} className='form2'>
             <input type="text"className='input1' value={city} onChange={(e) => setCity(e.target.value)}  placeholder="Enter city/country name" />
-            <button className='button1' type='submit'>SUBMIT</button>
+            <button className='button1' type='submit'>SHOW</button>
           </form>
           {forecastData.length > 0 && (
             <div className='days'>
