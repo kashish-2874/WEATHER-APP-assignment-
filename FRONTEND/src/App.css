@@ -4,7 +4,7 @@
   margin: 5vh auto;
   text-align: center;
   border-radius: 2vh;
-  background: linear-gradient(rgba(33, 1, 33, 0.699), rgba(174, 30, 54, 0.673));
+  background: linear-gradient(rgba(33, 1, 33, 0.699), rgba(67, 160, 230, 0.673));      
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a default shadow */
 }
