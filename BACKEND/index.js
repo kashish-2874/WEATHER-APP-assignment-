@@ -16,7 +16,7 @@ const authenticateToken = (req,res,next) => {
     const authHeader = req.headers['authorization'] ; 
     console.log(authHeader) ; 
     const token = authHeader && authHeader.split(' ')[1] ; 
-    if(token == null) return res.sendStatus(401) ;
+    if(token == null) return res.sendStatus(401).json({redirect:"/"}) ;
 
     jwt.verify(token,'THIS IS A SECRET KEY', (err,user) => {
         if(err) res.sendStatus(403) ; 
@@ -83,14 +83,15 @@ app.post("/login",(req,res)=>{
             jwt.sign(payload, 'THIS IS A SECRET KEY', {expiresIn: '1h'}, (err,token)=>{
                 if(err) {
                     console.err("ERROR SIGNING TOKEN",err) ; 
-                    res.status(500).json({message:"Errir generating token"}) ; 
+                    res.status(500).json({bool:false, message:"Error generating token", redirect:"/Login"}) ; 
                 }
                 else{
-                    console.log(`User logged in : ${email}`) ; 
+                    console.log(`User logged in : ${email} ,\n ${token} `) ; 
                     res.json({
                         bool:true,
-                        explanation:"USER LOGGED IN",
-                        token: token 
+                        message:"USER LOGGED IN",
+                        token: token ,
+                        redirect: "/Result"
                     });
                 }
             });
@@ -98,11 +99,11 @@ app.post("/login",(req,res)=>{
         }
         else{
             // wrong password
-            res.status(401).json({bool:false,explanation:"WRONG PASSWORD"});  
+            res.status(401).json({bool:false,message:"WRONG PASSWORD",redirect:"/Login"});  
         }
     }
     else{ // user not found 
-        res.status(404).json({bool:false,explanation:"USER NOT FOUND"}); 
+        res.status(404).json({bool:false,message:"USER NOT FOUND",redirect:"/Signup"}); 
     }
 });
 
@@ -114,7 +115,9 @@ app.post("/signup",(req,res)=>{
 
     if(INDEX >= 0){ // user present
         // res.status(409).json({bool:false,explanation:"USER IS ALREADY PRESENT"}) ; // not working
-        res.json({bool:false,explanation:"USER IS ALREADY PRESENT"}) ;
+        res.json({bool:false,
+                  message:"USER IS ALREADY PRESENT",
+                  redirect:"/Login"}) ;
     }
     else{ 
         const user = {name,email,password} ; 
@@ -123,7 +126,7 @@ app.post("/signup",(req,res)=>{
             if(err) console.log(err) ; 
             else{
                 console.log(`NEW USER CREATED : ${email}`) ; 
-                res.status(200).json({bool:true,explanation:"USER ADDED SUCCESSFULLY"}) ;
+                res.status(200).json({bool:true,message:"USER ADDED SUCCESSFULLY",redirect:"/Login"}) ;
             }
         })
     }
@@ -138,7 +141,7 @@ app.get('/verify', authenticateToken , (req,res)=> {
 // LOGOUT
 app.post('/logout', authenticateToken , (req,res)=> {
     console.log(`User logged out : ${req.user.email}`) ; 
-    res.json({message : 'Logged out successfully'}) ; 
+    res.json({message : 'Logged out successfully',redirect:"/"}) ; 
 });
 
 const Port = 5500 ; 
@@ -148,3 +151,10 @@ app.listen(Port,(err)=>{
         console.log(`SERVER RUNNING ON PORT : ${Port}`) ;
     }
 });
+
+
+
+
+
+
+
